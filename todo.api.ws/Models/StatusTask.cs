@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace todo.api.ws.Models
 {
-    public class Status
+    public class StatusTask
     {
+        [Key]
         public int StatusId { get; set; }
         public string Description { get; set; }
         public string Color { get; set; }

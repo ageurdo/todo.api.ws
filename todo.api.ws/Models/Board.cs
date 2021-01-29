@@ -10,7 +10,6 @@ namespace todo.api.ws.Models
         public int BoardId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
         public ICollection<Task> Tasks { get; set; }
     }
 }

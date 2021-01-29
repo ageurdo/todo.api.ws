@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using todo.api.ws.Dal;
 using todo.api.ws.Repository;
+using todo.api.ws.Repository.Status;
 
 namespace todo.api.ws
 {
@@ -28,9 +29,9 @@ namespace todo.api.ws
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<EntityContext>(options => 
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<EntityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IStatusTaskRepository, StatusTaskRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

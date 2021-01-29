@@ -39,7 +39,8 @@ namespace todo.api.ws.Controllers
 
             _userRepository.Add(user);
 
-            return CreatedAtRoute("GetUser", new User { UserId = user.UserId }, user);
+            return CreatedAtAction(nameof(GetById), new { id = user.UserId }, user);
+
         }
 
         [HttpPut("{id}")]

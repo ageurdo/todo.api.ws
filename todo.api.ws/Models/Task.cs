@@ -17,7 +17,7 @@ namespace todo.api.ws.Models
         public int StatusId { get; set; }
 
         [ForeignKey("StatusId")]
-        public virtual Status Status { get; set; }
+        public virtual StatusTask Status { get; set; }
 
         public int UserId { get; set; }
 

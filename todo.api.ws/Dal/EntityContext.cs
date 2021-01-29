@@ -10,7 +10,7 @@ namespace todo.api.ws.Dal
 
         public DbSet<User> Users { get; set; }
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<Status> Status { get; set; }
+        public DbSet<StatusTask> StatusTask { get; set; }
         public DbSet<Board> Boards { get; set; }
     }
 }
