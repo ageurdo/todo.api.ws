@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using todo.api.ws.Dal;
 using todo.api.ws.Repository;
 using todo.api.ws.Repository.Status;
+using todo.api.ws.Repository.Tasks;
 
 namespace todo.api.ws
 {
@@ -32,6 +33,8 @@ namespace todo.api.ws
             services.AddDbContext<EntityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IStatusTaskRepository, StatusTaskRepository>();
+            services.AddTransient<IBoardRepository, BoardRepository>();
+            services.AddTransient<ITaskRepository, TaskRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
