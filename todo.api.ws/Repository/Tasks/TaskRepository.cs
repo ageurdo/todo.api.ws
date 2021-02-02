@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using todo.api.ws.Dal;
 using todo.api.ws.Models;
@@ -23,9 +24,14 @@ namespace todo.api.ws.Repository.Tasks
             return _context.Tasks.FirstOrDefault(t => t.TaskId == id);
         }
 
-        public IEnumerable<Task> GetAll()
+        public List<Task> GetAll()
         {
-            return _context.Tasks.ToList();
+            return _context.Tasks
+                .Include(e => e.User)
+                .Include(e => e.Board)
+                .Include(e => e.Status)
+                .AsNoTracking()
+                .ToList();
         }
 
         public void Remove(int id)
